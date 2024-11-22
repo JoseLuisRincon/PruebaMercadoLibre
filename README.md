@@ -58,13 +58,12 @@ Para desplegar la solución se hizo uso de Google App Engine, para depslegar los
   <li>Crear un proyecto en Google App Engine</li>
   <li>
     Agregar la dependencia en el proyecto de Google App Engine
-    ```pom
+    <br>
     <dependency>
-		    <groupId>com.google.cloud.tools</groupId>
-		    <artifactId>appengine-maven-plugin</artifactId>
-		    <version>2.8.1</version>
-		</dependency>
-    ```
+        <groupId>com.google.cloud.tools</groupId>
+	<artifactId>appengine-maven-plugin</artifactId>
+	<version>2.8.1</version>
+    </dependency>
   </li>
   <li>API Gateway</li>
 </ol>
