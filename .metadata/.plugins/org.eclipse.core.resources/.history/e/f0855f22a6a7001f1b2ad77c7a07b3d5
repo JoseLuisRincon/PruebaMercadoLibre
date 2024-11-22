@@ -1,0 +1,82 @@
+package com.mercadolibre.api.services;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.mercadolibre.api.clients.MercadoLibreClient;
+import com.mercadolibre.api.models.dto.Calculo;
+import com.mercadolibre.api.models.dto.Item;
+
+@Service
+public class ItemsServiceImpl implements ItemsService {
+
+	@Autowired
+	private MercadoLibreClient mercadoLibreClient;
+
+	@Override
+	public ResponseEntity<Calculo> calculo(Calculo calculo) {
+		Map<String, Float> items = getItems(calculo.getItems_ids());
+		List<Entry<String, Float>> listaOrdenada = new ArrayList<>(items.entrySet());
+		listaOrdenada.sort(Entry.comparingByValue());
+		Map<String, Float> resultadoFinal = new LinkedHashMap<>();
+		for (Entry<String, Float> entry : listaOrdenada) {
+			resultadoFinal.put(entry.getKey(), entry.getValue());
+		}
+		List<String> finalList = calculate(resultadoFinal, calculo.getAmount());
+		Calculo finalResult = new Calculo();
+		finalResult.setItems_ids(finalList);
+		if (finalList.size() > 0) {
+			return ResponseEntity.status(HttpStatus.OK).body(finalResult);
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+	}
+
+	private Map<String, Float> getItems(List<String> itemsList) {
+		Map<String, Float> items = new HashMap<>();
+		for (String itemId : listaItems) {
+			Item item = mercadoLibreClient.consultarItem(itemId);
+			if (!items.containsKey(item.getId()) && item != null) {
+				items.put(item.getId(), item.getPrice());
+			}
+		}
+		return items;
+	}
+
+	private Map<String, Float> orderItems(Map<String, Float> itemsMap) {
+		List<Entry<String, Float>> listaOrdenada = new ArrayList<>(itemsMap.entrySet());
+		listaOrdenada.sort(Entry.comparingByValue());
+		Map<String, Float> resultadoFinal = new LinkedHashMap<>();
+		for (Entry<String, Float> entry : listaOrdenada) {
+			resultadoFinal.put(entry.getKey(), entry.getValue());
+		}
+		return resultadoFinal;
+	}
+
+	private List<String> calculate(Map<String, Float> items, Float amount) {
+		List<String> idsToReturn = new ArrayList<>();
+		Float miminumPrice = Collections.min(items.values());
+		Float bestAmount = 0f;
+		for (String key : items.keySet()) {
+			if (miminumPrice <= items.get(key) && (bestAmount + miminumPrice) <= amount && !idsToReturn.contains(key)) {
+				idsToReturn.add(key);
+				miminumPrice = items.get(key);
+				bestAmount = bestAmount + miminumPrice;
+			}
+		}
+		if (bestAmount != 0f) {
+
+		}
+		return idsToReturn;
+	}
+
+}

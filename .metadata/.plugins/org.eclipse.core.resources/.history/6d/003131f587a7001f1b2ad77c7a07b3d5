@@ -1,0 +1,13 @@
+package com.mercadolibre.api.eureka;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MicroservicioApiMercadolibreEurekaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MicroservicioApiMercadolibreEurekaApplication.class, args);
+	}
+
+}

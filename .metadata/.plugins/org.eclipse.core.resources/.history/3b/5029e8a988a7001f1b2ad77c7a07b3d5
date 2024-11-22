@@ -1,0 +1,3 @@
+spring.application.name=microservicio-api-mercadolibre
+server.port=${PORT:0}
+eureka.instance.instance-id=${spring.application.name}:${random.value}

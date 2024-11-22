@@ -1,0 +1,14 @@
+package com.mercadolibre.api.services;
+
+import java.util.List;
+import java.util.Map;
+
+import com.mercadolibre.api.models.dto.Calculo;
+
+public interface ItemsService {
+
+	public Calculo calculo(Calculo calculo);
+
+	public List<String> calculate(Map<String, Float> items, Float amount);
+
+}

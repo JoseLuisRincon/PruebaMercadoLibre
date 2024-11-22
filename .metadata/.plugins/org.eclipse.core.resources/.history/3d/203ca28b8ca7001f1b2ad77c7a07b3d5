@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: microservicio-api-mercadolibre
+        uri: lb://microservicio-api-mercadolibre
+        predicates:
+          - Path=/api/items/**
+        filters:
+          - StripPrefix=2

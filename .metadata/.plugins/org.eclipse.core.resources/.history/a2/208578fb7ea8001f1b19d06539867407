@@ -1,0 +1,5 @@
+FROM amazoncorretto:21-alpine-jdk
+WORKDIR /app
+ADD ./target/microservicio-api-mercadolibre-eureka-0.0.1-SNAPSHOT.jar microservicio-api-mercadolibre-eureka.jar
+
+ENTRYPOINT ["java", "-jar", "microservicio-api-mercadolibre-eureka.jar"]
