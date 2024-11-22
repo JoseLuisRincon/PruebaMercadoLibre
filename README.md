@@ -38,6 +38,18 @@ Seguido de esto y por medio del endpoint /api/items/coupon se debe enviar el sig
 }
 ```
 
+Si el monto es suficiente para comprar mímimamente un ítem el servicio responde con el body y status HTTP 200-OK, de lo contrario devuelve el status 404-NOT_FOUND. A continuación se adjunta el response que devuelve el servicio cuando se le envia el body ya mostrado:
+
+```json
+{
+    "items_ids": [
+        "MCO2742004666",
+        "MCO1592105778"
+    ],
+    "total": 130947.0
+}
+```
+
 <h3>URL de la API</h3>
 
 **Nota:** se intentó realizar el despliegue en Google App Engine pero no funciona correctamente la API
