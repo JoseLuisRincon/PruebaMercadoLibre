@@ -54,8 +54,8 @@ Si el monto es suficiente para comprar mímimamente un ítem el servicio respond
 
 Para desplegar la solución se hizo uso de Google App Engine, para depslegar los microservicios se siguieron los siguientes pasos:
 
-1. Crear un proyecto en Google App Engine
-2. Agregar la dependencia en el proyecto de Google App Engine
+1. Crear un proyecto en Google App Engine.
+2. Agregar la dependencia en el proyecto de Google App Engine.
     ```pom
     <dependency>
         <groupId>com.google.cloud.tools</groupId>
@@ -63,7 +63,7 @@ Para desplegar la solución se hizo uso de Google App Engine, para depslegar los
 	    <version>2.8.1</version>
     </dependency>
     ```
-3. Descargar el SDK de Google Cloud Engine</li> 
+3. Descargar el SDK de Google Cloud Engine.
 4. Configurar proyecto con el siguiente yaml:
     <br>
 	```yaml
@@ -76,8 +76,9 @@ Para desplegar la solución se hizo uso de Google App Engine, para depslegar los
 	- url: /.*
 	  script: this field is required, but ignored
 	```  
-  </li>
-</ol>
+5. Compilar y subir el proyecto de la siguiente forma:
+
+![image](https://github.com/user-attachments/assets/905c1a2d-2a8c-472a-a05f-e39a9f4234ac)
 
 <hr>
 
