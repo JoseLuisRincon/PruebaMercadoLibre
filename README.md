@@ -56,12 +56,13 @@ Para desplegar la solución se hizo uso de Google App Engine, para depslegar los
 
 1. Crear un proyecto en Google App Engine
 2. Agregar la dependencia en el proyecto de Google App Engine
-    <br>
+    ```pom
     <dependency>
         <groupId>com.google.cloud.tools</groupId>
 	<artifactId>appengine-maven-plugin</artifactId>
 	<version>2.8.1</version>
     </dependency>
+    ```
 3. Descargar el SDK de Google Cloud Engine</li> 
 4. Configurar proyecto con el siguiente yaml:
     <br>
