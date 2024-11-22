@@ -65,7 +65,21 @@ Para desplegar la solución se hizo uso de Google App Engine, para depslegar los
 	<version>2.8.1</version>
     </dependency>
   </li>
-  <li>API Gateway</li>
+  <li>Descargar el SDK de Google Cloud Engine</li> 
+  <li>
+    Configurar proyecto con el siguiente yaml:
+    <br>
+	```yaml
+runtime: java
+env: flex
+runtime_config:
+  operating_system: "ubuntu22"
+  runtime_version: "21"
+handlers:
+- url: /.*
+  script: this field is required, but ignored
+```  
+  </li>
 </ol>
 
 <hr>
