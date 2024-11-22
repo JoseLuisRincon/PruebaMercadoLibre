@@ -50,6 +50,8 @@ Si el monto es suficiente para comprar mímimamente un ítem el servicio respond
 }
 ```
 
+<hr>
+
 <h3>URL de la API</h3>
 
 **Nota:** se intentó realizar el despliegue en Google App Engine pero no funciona correctamente la API
