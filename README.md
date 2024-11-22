@@ -54,31 +54,27 @@ Si el monto es suficiente para comprar mímimamente un ítem el servicio respond
 
 Para desplegar la solución se hizo uso de Google App Engine, para depslegar los microservicios se siguieron los siguientes pasos:
 
-<ol>
-  <li>Crear un proyecto en Google App Engine</li>
-  <li>
-    Agregar la dependencia en el proyecto de Google App Engine
+1. Crear un proyecto en Google App Engine
+2. Agregar la dependencia en el proyecto de Google App Engine
     <br>
     <dependency>
         <groupId>com.google.cloud.tools</groupId>
 	<artifactId>appengine-maven-plugin</artifactId>
 	<version>2.8.1</version>
     </dependency>
-  </li>
-  <li>Descargar el SDK de Google Cloud Engine</li> 
-  <li>
-    Configurar proyecto con el siguiente yaml:
+3. Descargar el SDK de Google Cloud Engine</li> 
+4. Configurar proyecto con el siguiente yaml:
     <br>
 	```yaml
-runtime: java
-env: flex
-runtime_config:
-  operating_system: "ubuntu22"
-  runtime_version: "21"
-handlers:
-- url: /.*
-  script: this field is required, but ignored
-```  
+	runtime: java
+	env: flex
+	runtime_config:
+	  operating_system: "ubuntu22"
+	  runtime_version: "21"
+	handlers:
+	- url: /.*
+	  script: this field is required, but ignored
+	```  
   </li>
 </ol>
 
