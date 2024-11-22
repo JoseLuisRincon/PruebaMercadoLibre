@@ -50,6 +50,25 @@ Si el monto es suficiente para comprar mímimamente un ítem el servicio respond
 }
 ```
 
+**Despliegue de la solución**
+
+Para desplegar la solución se hizo uso de Google App Engine, para depslegar los microservicios se siguieron los siguientes pasos:
+
+<ol>
+  <li>Crear un proyecto en Google App Engine</li>
+  <li>
+    Agregar la dependencia en el proyecto de Google App Engine
+    ```pom
+    <dependency>
+		    <groupId>com.google.cloud.tools</groupId>
+		    <artifactId>appengine-maven-plugin</artifactId>
+		    <version>2.8.1</version>
+		</dependency>
+    ```
+  </li>
+  <li>API Gateway</li>
+</ol>
+
 <hr>
 
 <h3>URL de la API</h3>
