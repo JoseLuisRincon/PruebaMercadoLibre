@@ -1,5 +1,0 @@
-package com.mercadolibre.api.services;
-
-public interface ItemsService {
-
-}

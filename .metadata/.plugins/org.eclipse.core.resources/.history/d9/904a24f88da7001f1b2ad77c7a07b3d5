@@ -1,5 +1,0 @@
-spring.application.name=microservicio-api-mercadolibre
-server.port=${PORT:0}
-eureka.instance.instance-id=${spring.cloud.client.hostname}:${spring.application.name}:${random.value}
-
-eureka.client.service-url.defaultZone=http://localhost:8761/eureka

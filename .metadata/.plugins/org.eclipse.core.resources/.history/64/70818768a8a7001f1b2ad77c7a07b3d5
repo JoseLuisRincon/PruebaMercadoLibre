@@ -1,5 +1,0 @@
-package com.mercadolibre.api.models.dto;
-
-public class CalculusResponse extends Calculus {
-
-}

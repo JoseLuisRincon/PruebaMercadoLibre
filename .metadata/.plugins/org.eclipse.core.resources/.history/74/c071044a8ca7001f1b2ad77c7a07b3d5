@@ -1,8 +1,0 @@
-spring.application.name=microservicio-api-mercadolibre-gateway
-eureka.client.service-url.defaultZone=http://localhost:8761/eureka
-server.port=8090
-
-spring.cloud.gateway.routes[0].id=microservicio-api-mercadolibre
-spring.cloud.gateway.routes[0].uri=lb://microservicio-api-mercadolibre
-spring.cloud.gateway.routes[0].predicates=Path=/api/items/**
-spring.cloud.gateway.routes[0].filters=StripPrefix=2
